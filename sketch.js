@@ -137,7 +137,7 @@ function setup() {
     if (displayWidth > displayHeight) {
         k = (displayHeight*0.75) / 450;
     } else {
-        k = (displayWidth*0.9) / 900;
+        k = (displayWidth*1) / 900;
     }
 
     createCanvas(900*k, 450*k);
