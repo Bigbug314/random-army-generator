@@ -245,121 +245,6 @@ function drawSuperTroopSelection() {
 
 
 
-function drawTroop() {
-    textAlign(CENTER, CENTER);
-    textSize(40*k);
-    fill(255, 255, 255);
-    strokeWeight(3);
-    stroke(0, 0, 0);
-
-    //Title
-    text("Elixir Troops", 450*k, 50*k);
-
-    let n = 0;
-    for (let i = 0; i < army.troops.length; i++) {
-        if (army.troops[i] != 0) {
-            let x = 55*k + (100*k*parseInt(n/2));
-            let y;
-            if (n % 2 == 0) {
-                y = 130*k;
-            } else {
-                y = 230*k;
-            }
-
-            image(images.troops[i], x, y, 90*k, 90*k);
-
-            textSize(50*k);
-            fill(255, 0, 0);
-            text(army.troops[i].toString(), x+45*k, y+45*k);
-
-            n += 1;
-        }
-    }
-
-    //Next button
-    nextButton.draw();
-    //Back button
-    backButton.draw();
-}
-
-
-
-function drawDarkTroop() {
-    textAlign(CENTER, CENTER);
-    textSize(40*k);
-    fill(255, 255, 255);
-    strokeWeight(3);
-    stroke(0, 0, 0);
-
-    //Title
-    text("Dark Elixir Troops", 450*k, 50*k);
-
-    let n = 0;
-    for (let i = 0; i < army.darkTroops.length; i++) {
-        if (army.darkTroops[i] != 0) {
-            let x = 55*k + (100*k*parseInt(n/2));
-            let y;
-            if (n % 2 == 0) {
-                y = 130*k;
-            } else {
-                y = 230*k;
-            }
-
-            image(images.darktroops[i], x, y, 90*k, 90*k);
-
-            textSize(50*k);
-            fill(255, 0, 0);
-            text(army.darkTroops[i].toString(), x+45*k, y+45*k);
-
-            n += 1;
-        }
-    }
-
-    //Next button
-    nextButton.draw();
-    //Back button
-    backButton.draw();
-}
-
-
-function drawSuperTroop() {
-    textAlign(CENTER, CENTER);
-    textSize(40*k);
-    fill(255, 255, 255);
-    strokeWeight(3);
-    stroke(0, 0, 0);
-
-    //Title
-    text("Super Troops", 450*k, 50*k);
-
-    let n = 0;
-    for (let i = 0; i < army.superTroops.length; i++) {
-        if (army.superTroops[i] != 0) {
-            let x = 55*k + (100*k*parseInt(n/2));
-            let y;
-            if (n % 2 == 0) {
-                y = 130*k;
-            } else {
-                y = 230*k;
-            }
-
-            image(images.supertroops[i], x, y, 90*k, 90*k);
-
-            textSize(50*k);
-            fill(255, 0, 0);
-            text(army.superTroops[i].toString(), x+45*k, y+45*k);
-
-            n += 1;
-        }
-    }
-
-    //Next button
-    nextButton.draw();
-    //Back button
-    backButton.draw();
-}
-
-
 
 function drawSpell() {
     textAlign(CENTER, CENTER);
@@ -593,6 +478,265 @@ function drawSiegeMachine() {
     if (army.siegeMachine != -1) {
         image(images.siegemachine[army.siegeMachine], 405*k, 225*k, 90*k, 90*k);
     }
+
+    //Next button
+    nextButton.draw();
+    //Back button
+    backButton.draw();
+}
+
+
+
+function drawArmy() {
+    textAlign(CENTER, CENTER);
+    textSize(40*k);
+    fill(255, 255, 255);
+    strokeWeight(3);
+    stroke(0, 0, 0);
+
+    //Title
+    text("Army:", 450*k, 50*k);
+
+    //Texts
+    textSize(20*k);
+    textAlign(LEFT, CENTER);
+    text("Troops:", 80*k, 100*k);
+    text("Spells:", 600*k, 100*k);
+    text("CC Troops:", 80*k, 250*k);
+    text("CC Spells:", 600*k, 250*k);
+
+
+    textAlign(CENTER, CENTER);
+
+    //Troops
+    let n = 0;
+    for (let i = 0; i < army.troops.length + army.darkTroops.length + army.superTroops.length; i++) {
+        //Elixir troops
+        if (i < army.troops.length) {
+            if (army.troops[i] != 0) {
+                let x = 90*k + (48*k*parseInt(n/2));
+                let y;
+                if (n % 2 == 0) {
+                    y = 125*k;
+                } else {
+                    y = 175*k;
+                }
+
+                image(images.troops[i], x, y, 45*k, 45*k);
+
+                textSize(25*k);
+                fill(255, 0, 0);
+                text(army.troops[i].toString(), x+22.5*k, y+22.5*k);
+
+                n += 1;
+            }
+        }
+        //Dark elixir troops
+        else if (i < army.troops.length + army.darkTroops.length) {
+            if (army.darkTroops[i - army.troops.length] != 0) {
+                let x = 90*k + (48*k*parseInt(n/2));
+                let y;
+                if (n % 2 == 0) {
+                    y = 125*k;
+                } else {
+                    y = 175*k;
+                }
+    
+                image(images.darktroops[i - army.troops.length], x, y, 45*k, 45*k);
+    
+                textSize(25*k);
+                fill(255, 0, 0);
+                text(army.darkTroops[i - army.troops.length].toString(), x+22.5*k, y+22.5*k);
+    
+                n += 1;
+            }
+        }
+        //Super troops
+        else {
+            if (army.superTroops[i - army.troops.length - army.darkTroops.length] != 0) {
+                let x = 90*k + (48*k*parseInt(n/2));
+                let y;
+                if (n % 2 == 0) {
+                    y = 125*k;
+                } else {
+                    y = 175*k;
+                }
+    
+                image(images.supertroops[i - army.troops.length - army.darkTroops.length], x, y, 45*k, 45*k);
+    
+                textSize(25*k);
+                fill(255, 0, 0);
+                text(army.superTroops[i - army.troops.length - army.darkTroops.length].toString(), x+22.5*k, y+22.5*k);
+    
+                n += 1;
+            }
+        }
+    }
+
+
+
+    //Spells
+    n = 0;
+    for (let i = 0; i < army.spells.length + army.darkSpells.length; i++) {
+        //Elixir spells
+        if (i < army.spells.length) {
+            if (army.spells[i] != 0) {
+                let x = 610*k + (48*k*parseInt(n/2));
+                let y;
+                if (n % 2 == 0) {
+                    y = 125*k;
+                } else {
+                    y = 175*k;
+                }
+
+                image(images.spells[i], x, y, 45*k, 45*k);
+
+                textSize(25*k);
+                fill(255, 0, 0);
+                text(army.spells[i].toString(), x+22.5*k, y+22.5*k);
+
+                n += 1;
+            }
+        }
+        //Dark spells
+        else {
+            if (army.darkSpells[i - army.spells.length] != 0) {
+                let x = 610*k + (48*k*parseInt(n/2));
+                let y;
+                if (n % 2 == 0) {
+                    y = 125*k;
+                } else {
+                    y = 175*k;
+                }
+    
+                image(images.darkspells[i - army.spells.length], x, y, 45*k, 45*k);
+    
+                textSize(25*k);
+                fill(255, 0, 0);
+                text(army.darkSpells[i - army.spells.length].toString(), x+22.5*k, y+22.5*k);
+    
+                n += 1;
+            }
+        }
+    }
+
+
+
+
+    //CC Troops
+    n = 0;
+    for (let i = 0; i < army.ccTroops.length + army.ccDarkTroops.length + army.ccSuperTroops.length; i++) {
+        //Elixir troops
+        if (i < army.ccTroops.length) {
+            if (army.ccTroops[i] != 0) {
+                let x = 90*k + (48*k*parseInt(n/2));
+                let y;
+                if (n % 2 == 0) {
+                    y = 275*k;
+                } else {
+                    y = 325*k;
+                }
+
+                image(images.troops[i], x, y, 45*k, 45*k);
+
+                textSize(25*k);
+                fill(255, 0, 0);
+                text(army.ccTroops[i].toString(), x+22.5*k, y+22.5*k);
+
+                n += 1;
+            }
+        }
+        //Dark elixir troops
+        else if (i < army.ccTroops.length + army.ccDarkTroops.length) {
+            if (army.ccDarkTroops[i - army.ccTroops.length] != 0) {
+                let x = 90*k + (48*k*parseInt(n/2));
+                let y;
+                if (n % 2 == 0) {
+                    y = 275*k;
+                } else {
+                    y = 325*k;
+                }
+    
+                image(images.darktroops[i - army.ccTroops.length], x, y, 45*k, 45*k);
+    
+                textSize(25*k);
+                fill(255, 0, 0);
+                text(army.ccDarkTroops[i - army.ccTroops.length].toString(), x+22.5*k, y+22.5*k);
+    
+                n += 1;
+            }
+        }
+        //Super troops
+        else {
+            if (army.ccSuperTroops[i - army.ccTroops.length - army.ccDarkTroops.length] != 0) {
+                let x = 90*k + (48*k*parseInt(n/2));
+                let y;
+                if (n % 2 == 0) {
+                    y = 275*k;
+                } else {
+                    y = 325*k;
+                }
+    
+                image(images.supertroops[i - army.ccTroops.length - army.ccDarkTroops.length], x, y, 45*k, 45*k);
+    
+                textSize(25*k);
+                fill(255, 0, 0);
+                text(army.ccSuperTroops[i - army.ccTroops.length - army.ccDarkTroops.length].toString(), x+22.5*k, y+22.5*k);
+    
+                n += 1;
+            }
+        }
+    }
+
+
+    //CC Spells
+    n = 0;
+    for (let i = 0; i < army.ccSpells.length + army.ccDarkSpells.length; i++) {
+        //Elixir spells
+        if (i < army.ccSpells.length) {
+            if (army.ccSpells[i] != 0) {
+                let x = 610*k + (48*k*parseInt(n/2));
+                let y;
+                if (n % 2 == 0) {
+                    y = 275*k;
+                } else {
+                    y = 325*k;
+                }
+
+                image(images.spells[i], x, y, 45*k, 45*k);
+
+                textSize(25*k);
+                fill(255, 0, 0);
+                text(army.ccSpells[i].toString(), x+22.5*k, y+22.5*k);
+
+                n += 1;
+            }
+        }
+        //Dark spells
+        else {
+            if (army.ccDarkSpells[i - army.ccSpells.length] != 0) {
+                let x = 610*k + (48*k*parseInt(n/2));
+                let y;
+                if (n % 2 == 0) {
+                    y = 275*k;
+                } else {
+                    y = 325*k;
+                }
+    
+                image(images.darkspells[i - army.ccSpells.length], x, y, 45*k, 45*k);
+    
+                textSize(25*k);
+                fill(255, 0, 0);
+                text(army.ccDarkSpells[i - army.ccSpells.length].toString(), x+22.5*k, y+22.5*k);
+    
+                n += 1;
+            }
+        }
+    }
+
+
+
+
 
     //Back button
     backButton.draw();

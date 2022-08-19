@@ -305,43 +305,7 @@ function draw() {
 
     //Draw troops
     else if (menuIndex == 7) {
-        drawTroop();
-    }
-
-    //Draw dark troops
-    else if (menuIndex == 8) {
-        drawDarkTroop();
-    }
-
-    //Draw super troops
-    else if (menuIndex == 9) {
-        drawSuperTroop();
-    }
-
-    //Draw Spells
-    else if (menuIndex == 10) {
-        drawSpell();
-    }
-
-    //Draw Dark Spells
-    else if (menuIndex == 11) {
-        drawDarkSpell();
-    }
-
-
-    //Draw cc Troops
-    else if (menuIndex == 12) {
-        drawccTroop();
-    }
-
-    //Draw cc Spells
-    else if (menuIndex == 13) {
-        drawccSpell();
-    }
-
-    //Draw siege machine
-    else if (menuIndex == 14) {
-        drawSiegeMachine();
+        drawArmy();
     }
 }
 
@@ -351,7 +315,7 @@ function draw() {
 //Events
 function mouseClicked() {
     let nextbackButtonClicked = false;
-    if (menuIndex <= 13) {
+    if (menuIndex <= 6) {
         if (nextButton.update(createVector(mouseX,mouseY))) {
             nextbackButtonClicked = true;
         }
@@ -511,54 +475,5 @@ function toMenu7() {
 
     army = randomArmy(troopCapacity, ccTroopCapacity, spellCapacity, ccSpellCapacity, selectedTroop, selectedDarkTroop, selectedSpell, selectedDarkSpell, selectedSiegeMachine, selectedSuperTroops);
 
-    nextButton.action = toMenu8;
     backButton.action = toMenu6;
-}
-
-function toMenu8() {
-    menuIndex = 8;
-
-    nextButton.action = toMenu9;
-    backButton.action = toMenu7;
-}
-
-function toMenu9() {
-    menuIndex = 9;
-
-    nextButton.action = toMenu10;
-    backButton.action = toMenu8;
-}
-
-function toMenu10() {
-    menuIndex = 10;
-
-    nextButton.action = toMenu11;
-    backButton.action = toMenu9;
-}
-
-function toMenu11() {
-    menuIndex = 11;
-
-    nextButton.action = toMenu12;
-    backButton.action = toMenu10;
-}
-
-function toMenu12() {
-    menuIndex = 12;
-
-    nextButton.action = toMenu13;
-    backButton.action = toMenu11;
-}
-
-function toMenu13() {
-    menuIndex = 13;
-
-    nextButton.action = toMenu14;
-    backButton.action = toMenu12;
-}
-
-function toMenu14() {
-    menuIndex = 14;
-
-    backButton.action = toMenu13;
 }

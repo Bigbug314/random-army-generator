@@ -81,7 +81,6 @@ function randomArmy(troopCap, ccTroopCap, spellCap, ccSpellCap, sTroop, sDTroop,
             }
         }
     }
-    console.log(superTroops);
 
     //Spells / DarkSpells
     currentCapacity = 0
