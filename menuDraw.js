@@ -213,6 +213,10 @@ function drawSuperTroopSelection() {
     //Title
     text("Select all the super troops\nyou have (maximum two will be chosen)", 450*k, 50*k);
 
+    textSize(15*k);
+    textAlign(LEFT, CENTER)
+    text("-Already have super troop boosted \n-Don't have enough dark elixir to boost super troops", 450*k, 128*k);
+
 
     //Selection rect
     fill(50, 255, 50);
@@ -222,9 +226,9 @@ function drawSuperTroopSelection() {
             let x = 55*k + (100*k*parseInt(i/2));
             let y;
             if (i % 2 == 0) {
-                y = 130*k;
+                y = 160*k;
             } else {
-                y = 230*k;
+                y = 260*k;
             }
 
             rect(x, y, 90*k, 90*k, 10*k);
@@ -234,227 +238,6 @@ function drawSuperTroopSelection() {
     //Images
     for (let button of superTroopButtons) {
         button.draw();
-    }
-
-    //Next button
-    nextButton.draw();
-    //Back button
-    backButton.draw();
-}
-
-
-
-
-
-function drawSpell() {
-    textAlign(CENTER, CENTER);
-    textSize(40*k);
-    fill(255, 255, 255);
-    strokeWeight(3);
-    stroke(0, 0, 0);
-
-    //Title
-    text("Elixir Spells", 450*k, 50*k);
-
-    let n = 0;
-    for (let i = 0; i < army.spells.length; i++) {
-        if (army.spells[i] != 0) {
-            let x = 55*k + (100*k*parseInt(n/2));
-            let y;
-            if (n % 2 == 0) {
-                y = 130*k;
-            } else {
-                y = 230*k;
-            }
-
-            image(images.spells[i], x, y, 90*k, 90*k);
-
-            textSize(50*k);
-            fill(255, 0, 0);
-            text(army.spells[i].toString(), x+45*k, y+45*k);
-
-            n += 1;
-        }
-    }
-
-    //Next button
-    nextButton.draw();
-    //Back button
-    backButton.draw();
-}
-
-
-
-function drawDarkSpell() {
-    textAlign(CENTER, CENTER);
-    textSize(40*k);
-    fill(255, 255, 255);
-    strokeWeight(3);
-    stroke(0, 0, 0);
-
-    //Title
-    text("Dark Elixir Spells", 450*k, 50*k);
-
-    let n = 0;
-    for (let i = 0; i < army.darkSpells.length; i++) {
-        if (army.darkSpells[i] != 0) {
-            let x = 55*k + (100*k*parseInt(n/2));
-            let y;
-            if (n % 2 == 0) {
-                y = 130*k;
-            } else {
-                y = 230*k;
-            }
-
-            image(images.darkspells[i], x, y, 90*k, 90*k);
-
-            textSize(50*k);
-            fill(255, 0, 0);
-            text(army.darkSpells[i].toString(), x+45*k, y+45*k);
-
-            n += 1;
-        }
-    }
-
-    //Next button
-    nextButton.draw();
-    //Back button
-    backButton.draw();
-}
-
-
-
-
-
-
-function drawccTroop() {
-    textAlign(CENTER, CENTER);
-    textSize(40*k);
-    fill(255, 255, 255);
-    strokeWeight(3);
-    stroke(0, 0, 0);
-
-    //Title
-    text("CC Troops", 450*k, 50*k);
-
-    let n = 0;
-    for (let i = 0; i < army.ccTroops.length; i++) {
-        if (army.ccTroops[i] != 0) {
-            let x = 55*k + (100*k*parseInt(n/2));
-            let y;
-            if (n % 2 == 0) {
-                y = 130*k;
-            } else {
-                y = 230*k;
-            }
-
-            image(images.troops[i], x, y, 90*k, 90*k);
-
-            textSize(50*k);
-            fill(255, 0, 0);
-            text(army.ccTroops[i].toString(), x+45*k, y+45*k);
-
-            n += 1;
-        }
-    }
-
-    for (let i = 0; i < army.ccDarkTroops.length; i++) {
-        if (army.ccDarkTroops[i] != 0) {
-            let x = 55*k + (100*k*parseInt(n/2));
-            let y;
-            if (n % 2 == 0) {
-                y = 130*k;
-            } else {
-                y = 230*k;
-            }
-
-            image(images.darktroops[i], x, y, 90*k, 90*k);
-
-            textSize(50*k);
-            fill(255, 0, 0);
-            text(army.ccDarkTroops[i].toString(), x+45*k, y+45*k);
-
-            n += 1;
-        }
-    }
-
-    for (let i = 0; i < army.ccSuperTroops.length; i++) {
-        if (army.ccSuperTroops[i] != 0) {
-            let x = 55*k + (100*k*parseInt(n/2));
-            let y;
-            if (n % 2 == 0) {
-                y = 130*k;
-            } else {
-                y = 230*k;
-            }
-
-            image(images.supertroops[i], x, y, 90*k, 90*k);
-
-            textSize(50*k);
-            fill(255, 0, 0);
-            text(army.ccSuperTroops[i].toString(), x+45*k, y+45*k);
-
-            n += 1;
-        }
-    }
-
-    //Next button
-    nextButton.draw();
-    //Back button
-    backButton.draw();
-}
-
-
-
-function drawccSpell() {
-    textAlign(CENTER, CENTER);
-    textSize(40*k);
-    fill(255, 255, 255);
-    strokeWeight(3);
-    stroke(0, 0, 0);
-
-    //Title
-    text("CC Spells", 450*k, 50*k);
-
-    let n = 0;
-    for (let i = 0; i < army.ccSpells.length; i++) {
-        if (army.ccSpells[i] != 0) {
-            let x = 55*k + (100*k*parseInt(n/2));
-            let y;
-            if (n % 2 == 0) {
-                y = 130*k;
-            } else {
-                y = 230*k;
-            }
-
-            image(images.spells[i], x, y, 90*k, 90*k);
-
-            textSize(50*k);
-            fill(255, 0, 0);
-            text(army.ccSpells[i].toString(), x+45*k, y+45*k);
-
-            n += 1;
-        }
-    }
-
-    for (let i = 0; i < army.ccDarkSpells.length; i++) {
-        if (army.ccDarkSpells[i] != 0) {
-            let x = 55*k + (100*k*parseInt(n/2));
-            let y;
-            if (n % 2 == 0) {
-                y = 130*k;
-            } else {
-                y = 230*k;
-            }
-
-            image(images.darkspells[i], x, y, 90*k, 90*k);
-
-            textSize(50*k);
-            fill(255, 0, 0);
-            text(army.ccDarkSpells[i].toString(), x+45*k, y+45*k);
-
-            n += 1;
-        }
     }
 
     //Next button
@@ -504,6 +287,7 @@ function drawArmy() {
     text("Spells:", 600*k, 100*k);
     text("CC Troops:", 80*k, 250*k);
     text("CC Spells:", 600*k, 250*k);
+    text("Siege Machine:", 380*k, 320*k);
 
 
     textAlign(CENTER, CENTER);
@@ -734,7 +518,10 @@ function drawArmy() {
         }
     }
 
-
+    //Siege machine
+    if (army.siegeMachine != -1) {
+        image(images.siegemachine[army.siegeMachine], 427.5*k, 350*k, 45*k, 45*k);
+    }
 
 
 

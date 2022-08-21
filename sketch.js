@@ -36,6 +36,7 @@ let siegeMachineButtons = [];
 
 //Menu6 variables
 let superTroopButtons = [];
+let isNoSTChecked = false;
 
 
 
@@ -47,6 +48,8 @@ function preload() {
         background: loadImage("images/Background.jpg"),
         next: loadImage("images/Next.png"),
         back: loadImage("images/Back.png"),
+        checkboxc: loadImage("images/CheckboxChecked.png"),
+        checkboxu: loadImage("images/CheckboxUnchecked.png"),
         troops: [
             loadImage("images/troops/Barbarian.webp"),
             loadImage("images/troops/Archer.webp"),
@@ -240,20 +243,32 @@ function setup() {
     }
 
     //Super Troops
+    superTroopButtons.push(new Button(400*k, 110*k, 40*k, 40*k, images.checkboxu, true, function() {
+        if (isNoSTChecked) {
+            superTroopButtons[0].img = images.checkboxu;
+            isNoSTChecked = false;
+        } else {
+            superTroopButtons[0].img = images.checkboxc;
+            isNoSTChecked = true;
+            selectedSuperTroops = [];
+        }
+    }))
     for (let i = 0; i < 14; i++) {
         let x = 55*k + (100*k*parseInt(i/2));
         let y;
         if (i % 2 == 0) {
-            y = 130*k;
+            y = 160*k;
         } else {
-            y = 230*k;
+            y = 260*k;
         }
         superTroopButtons.push(new Button(x+5*k, y+5*k, 80*k, 80*k, images.supertroops[i], true, function() {
             if (selectedSuperTroops.includes(i)) {
                 selectedSuperTroops.splice(selectedSuperTroops.indexOf(i), 1);
             }
             else {
-                selectedSuperTroops.push(i);
+                if (!isNoSTChecked) {
+                    selectedSuperTroops.push(i);
+                }
             }
         }))
     }
