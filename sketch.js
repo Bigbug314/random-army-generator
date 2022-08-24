@@ -427,7 +427,7 @@ function mouseClicked() {
 function toMenu1() {
         try {
         menuIndex = 1;
-        e
+        
         troopCapacity = parseInt(troopInput.value());
         spellCapacity = parseInt(spellInput.value());
         ccTroopCapacity = parseInt(ccTroopInput.value());
