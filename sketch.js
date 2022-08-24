@@ -426,8 +426,9 @@ function mouseClicked() {
 
 function toMenu1() {
         try {
+        console.log("updated");
         menuIndex = 1;
-        
+
         troopCapacity = parseInt(troopInput.value());
         spellCapacity = parseInt(spellInput.value());
         ccTroopCapacity = parseInt(ccTroopInput.value());
