@@ -1,3 +1,5 @@
+let freeze = false;
+
 let army;
 
 
@@ -277,6 +279,10 @@ function setup() {
 
 //All draw functions
 function draw() {
+    if (freeze) {
+        return;
+    }
+
     background(90);
     image(images.background, 0, 0, width, height);
 
@@ -419,8 +425,9 @@ function mouseClicked() {
 //Switch to next menu
 
 function toMenu1() {
+        try {
         menuIndex = 1;
-
+        e
         troopCapacity = parseInt(troopInput.value());
         spellCapacity = parseInt(spellInput.value());
         ccTroopCapacity = parseInt(ccTroopInput.value());
@@ -446,6 +453,17 @@ function toMenu1() {
         ccSpellInput.remove();
 
         nextButton.action = toMenu2;
+        }
+        catch (e) {
+            textAlign(CENTER, CENTER);
+            textSize(15*k);
+            fill(255, 0, 0);
+            strokeWeight(3);
+            stroke(0, 0, 0);
+        
+            text(e, width/2, height/2);
+            freeze = true;
+        }
 }
 
 
