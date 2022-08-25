@@ -136,6 +136,7 @@ let spellInput;
 let ccTroopInput;
 let ccSpellInput;
 function setup() {
+    alert("setup starting");
     //Set k
     
     //Is horizontal or vertical
@@ -274,6 +275,8 @@ function setup() {
             }
         }))
     }
+
+    alert("setup done");
 }
 
 
@@ -293,7 +296,9 @@ function draw() {
 
     //Troop selection
     else if (menuIndex == 1) {
+        alert("sart drawing of troop selection menu");
         drawTroopSelection();
+        alert("drawing done");
     }
 
     //Dark Troop selection
@@ -425,14 +430,14 @@ function mouseClicked() {
 //Switch to next menu
 
 function toMenu1() {
-        try {
-        console.log("updated");
+        alert("toMenu1 sarting");
         menuIndex = 1;
-
+        alert("menuIndex set to 1");
         troopCapacity = parseInt(troopInput.value());
         spellCapacity = parseInt(spellInput.value());
         ccTroopCapacity = parseInt(ccTroopInput.value());
         ccSpellCapacity = parseInt(ccSpellInput.value());
+        alert("values entered have been parsed to int");
 
         if (!troopCapacity) {
             troopCapacity = 0;
@@ -446,25 +451,17 @@ function toMenu1() {
         if (!ccSpellCapacity) {
             ccSpellCapacity = 0;
         }
-
+        alert("missing values have been set to 0");
 
         troopInput.remove();
         spellInput.remove();
         ccTroopInput.remove();
         ccSpellInput.remove();
 
+        alert("text inputs deleted");
+
         nextButton.action = toMenu2;
-        }
-        catch (e) {
-            textAlign(CENTER, CENTER);
-            textSize(15*k);
-            fill(255, 0, 0);
-            strokeWeight(3);
-            stroke(0, 0, 0);
-        
-            text(e, width/2, height/2);
-            freeze = true;
-        }
+        alert("nextButton new action has been set");
 }
 
 
