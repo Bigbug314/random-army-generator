@@ -340,6 +340,7 @@ function draw() {
 
 //Events
 function mouseClicked() {
+    alert("you clicked");
     let nextbackButtonClicked = false;
     if (menuIndex <= 6) {
         if (nextButton.update(createVector(mouseX,mouseY))) {
