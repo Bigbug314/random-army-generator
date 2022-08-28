@@ -7,6 +7,7 @@ class Button extends GUI {
     update() {
         alert("button updated");
         if (this.isActive) {
+            alert("aaaaaaaaaaa");
             alert("MouseX: " + mouseX + "   MouseY: " + mouseY);
             if (this.cooInRectangle(mouseX, mouseY)) {
                 alert("button clicked");
