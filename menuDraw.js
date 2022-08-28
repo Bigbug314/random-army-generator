@@ -22,16 +22,13 @@ function drawTroopSelection() {
     fill(255, 255, 255);
     strokeWeight(3);
     stroke(0, 0, 0);
-    alert("text settings set");
 
     //Title
     text("Select the highest troop you have", 450*k, 50*k);
-    alert("title drawn");
 
     //Selection rect
     fill(50, 255, 50);
     strokeWeight(0);
-    alert("selection rect settings set");
     for (let i = 0; i < selectedTroop; i++) {
         let x = 55*k + (100*k*parseInt(i/2));
         let y;
@@ -42,19 +39,15 @@ function drawTroopSelection() {
         }
 
         rect(x, y, 90*k, 90*k, 10*k);
-        alert("rect drawn");
     }
 
     //Images
     for (let button of troopButtons) {
         button.draw();
-        alert("troop drawn");
     }
-    alert("finished drawing all troops")
 
     //Next button
     nextButton.draw();
-    alert("next button drawn");
 }
 
 function drawDarkTroopSelection() {
