@@ -30,7 +30,7 @@ function drawTroopSelection() {
     fill(50, 255, 50);
     strokeWeight(0);
     for (let i = 0; i < selectedTroop; i++) {
-        let x = 55*k + (100*k*parseInt(i/2));
+        let x = 25*k + (95*k*parseInt(i/2));
         let y;
         if (i % 2 == 0) {
             y = 130*k;
@@ -38,7 +38,7 @@ function drawTroopSelection() {
             y = 230*k;
         }
 
-        rect(x, y, 90*k, 90*k, 10*k);
+        rect(x, y, 85*k, 85*k, 10*k);
     }
 
     //Images
@@ -65,7 +65,7 @@ function drawDarkTroopSelection() {
     fill(50, 255, 50);
     strokeWeight(0);
     for (let i = 0; i < selectedDarkTroop; i++) {
-        let x = 55*k + (100*k*parseInt(i/2));
+        let x = 25*k + (95*k*parseInt(i/2));
         let y;
         if (i % 2 == 0) {
             y = 130*k;
@@ -73,7 +73,7 @@ function drawDarkTroopSelection() {
             y = 230*k;
         }
 
-        rect(x, y, 90*k, 90*k, 10*k);
+        rect(x, y, 85*k, 85*k, 10*k);
     }
 
     //Images
@@ -103,7 +103,7 @@ function drawSpellSelection() {
     fill(50, 255, 50);
     strokeWeight(0);
     for (let i = 0; i < selectedSpell; i++) {
-        let x = 55*k + (100*k*parseInt(i/2));
+        let x = 25*k + (95*k*parseInt(i/2));
         let y;
         if (i % 2 == 0) {
             y = 130*k;
@@ -111,7 +111,7 @@ function drawSpellSelection() {
             y = 230*k;
         }
 
-        rect(x, y, 90*k, 90*k, 10*k);
+        rect(x, y, 85*k, 85*k, 10*k);
     }
 
     //Images
@@ -141,7 +141,7 @@ function drawDarkSpellSelection() {
     fill(50, 255, 50);
     strokeWeight(0);
     for (let i = 0; i < selectedDarkSpell; i++) {
-        let x = 55*k + (100*k*parseInt(i/2));
+        let x = 25*k + (95*k*parseInt(i/2));
         let y;
         if (i % 2 == 0) {
             y = 130*k;
@@ -149,7 +149,7 @@ function drawDarkSpellSelection() {
             y = 230*k;
         }
 
-        rect(x, y, 90*k, 90*k, 10*k);
+        rect(x, y, 85*k, 85*k, 10*k);
     }
 
     //Images
@@ -179,7 +179,7 @@ function drawSiegeMachineSelection() {
     fill(50, 255, 50);
     strokeWeight(0);
     for (let i = 0; i < selectedSiegeMachine; i++) {
-        let x = 55*k + (100*k*parseInt(i/2));
+        let x = 25*k + (95*k*parseInt(i/2));
         let y;
         if (i % 2 == 0) {
             y = 130*k;
@@ -187,7 +187,7 @@ function drawSiegeMachineSelection() {
             y = 230*k;
         }
 
-        rect(x, y, 90*k, 90*k, 10*k);
+        rect(x, y, 85*k, 85*k, 10*k);
     }
 
     //Images
@@ -220,9 +220,9 @@ function drawSuperTroopSelection() {
     //Selection rect
     fill(50, 255, 50);
     strokeWeight(0);
-    for (let i = 0; i < 14; i++) {
+    for (let i = 0; i < 16; i++) {
         if (selectedSuperTroops.includes(i)) {
-            let x = 55*k + (100*k*parseInt(i/2));
+            let x = 25*k + (95*k*parseInt(i/2));
             let y;
             if (i % 2 == 0) {
                 y = 160*k;
@@ -230,7 +230,7 @@ function drawSuperTroopSelection() {
                 y = 260*k;
             }
 
-            rect(x, y, 90*k, 90*k, 10*k);
+            rect(x, y, 85*k, 85*k, 10*k);
         }
     }
 

@@ -67,7 +67,9 @@ function preload() {
             loadImage("images/troops/Miner.webp"),
             loadImage("images/troops/ElectroDragon.webp"),
             loadImage("images/troops/Yeti.webp"),
-            loadImage("images/troops/DragonRider.webp")
+            loadImage("images/troops/DragonRider.webp"),
+            loadImage("images/troops/ElectroTitan.png"),
+            loadImage("images/troops/RootRider.png"),
         ],
         darktroops: [
             loadImage("images/darkTroops/Minion.webp"),
@@ -78,7 +80,8 @@ function preload() {
             loadImage("images/darkTroops/LavaHound.webp"),
             loadImage("images/darkTroops/Bowler.webp"),
             loadImage("images/darkTroops/IceGolem.webp"),
-            loadImage("images/darkTroops/Headhunter.webp")
+            loadImage("images/darkTroops/Headhunter.webp"),
+            loadImage("images/darkTroops/ApprenticeWarden.png")
         ],
         spells: [
             loadImage("images/spells/LightningSpell.webp"),
@@ -87,7 +90,8 @@ function preload() {
             loadImage("images/spells/JumpSpell.webp"),
             loadImage("images/spells/FreezeSpell.webp"),
             loadImage("images/spells/CloneSpell.webp"),
-            loadImage("images/spells/InvisibilitySpell.webp")
+            loadImage("images/spells/InvisibilitySpell.webp"),
+            loadImage("images/spells/RecallSpell.webp")
         ],
         darkspells: [
             loadImage("images/darkSpells/PoisonSpell.webp"),
@@ -119,6 +123,8 @@ function preload() {
             loadImage("images/superTroops/SuperWitch.webp"),
             loadImage("images/superTroops/IceHound.webp"),
             loadImage("images/superTroops/SuperBowler.webp"),
+            loadImage("images/superTroops/SuperMiner.png"),
+            loadImage("images/superTroops/SuperHogRider.webp"),
         ]
     };
     fonts = {
@@ -175,71 +181,71 @@ function setup() {
     ccSpellInput.style('font-size', 35*k+'px');
 
     //Troops
-    for (let i = 0; i < 15; i++) {
-        let x = 55*k + (100*k*parseInt(i/2));
+    for (let i = 0; i < 17; i++) {
+        let x = 25*k + (95*k*parseInt(i/2));
         let y;
         if (i % 2 == 0) {
             y = 130*k;
         } else {
             y = 230*k;
         }
-        troopButtons.push(new Button(x+5*k, y+5*k, 80*k, 80*k, images.troops[i], true, function() {
+        troopButtons.push(new Button(x+5*k, y+5*k, 75*k, 75*k, images.troops[i], true, function() {
             selectedTroop = i+1;
         }))
     }
 
     //Dark Troops
-    for (let i = 0; i < 9; i++) {
-        let x = 55*k + (100*k*parseInt(i/2));
+    for (let i = 0; i < 10; i++) {
+        let x = 25*k + (95*k*parseInt(i/2));
         let y;
         if (i % 2 == 0) {
             y = 130*k;
         } else {
             y = 230*k;
         }
-        darkTroopButtons.push(new Button(x+5*k, y+5*k, 80*k, 80*k, images.darktroops[i], true, function() {
+        darkTroopButtons.push(new Button(x+5*k, y+5*k, 75*k, 75*k, images.darktroops[i], true, function() {
             selectedDarkTroop = i+1;
         }))
     }
 
     //Spells
-    for (let i = 0; i < 7; i++) {
-        let x = 55*k + (100*k*parseInt(i/2));
+    for (let i = 0; i < 8; i++) {
+        let x = 25*k + (95*k*parseInt(i/2));
         let y;
         if (i % 2 == 0) {
             y = 130*k;
         } else {
             y = 230*k;
         }
-        spellButtons.push(new Button(x+5*k, y+5*k, 80*k, 80*k, images.spells[i], true, function() {
+        spellButtons.push(new Button(x+5*k, y+5*k, 75*k, 75*k, images.spells[i], true, function() {
             selectedSpell = i+1;
         }))
     }
 
     //Dark Spells
     for (let i = 0; i < 5; i++) {
-        let x = 55*k + (100*k*parseInt(i/2));
+        let x = 25*k + (95*k*parseInt(i/2));
         let y;
         if (i % 2 == 0) {
             y = 130*k;
         } else {
             y = 230*k;
         }
-        darkSpellButtons.push(new Button(x+5*k, y+5*k, 80*k, 80*k, images.darkspells[i], true, function() {
+        darkSpellButtons.push(new Button(x+5*k, y+5*k, 75*k, 75*k, images.darkspells[i], true, function() {
             selectedDarkSpell = i+1;
         }))
     }
 
     //Siege Machines
     for (let i = 0; i < 6; i++) {
-        let x = 55*k + (100*k*parseInt(i/2));
+        let x = 25*k + (95*k*parseInt(i/2));
         let y;
         if (i % 2 == 0) {
             y = 130*k;
         } else {
             y = 230*k;
         }
-        siegeMachineButtons.push(new Button(x+5*k, y+5*k, 80*k, 80*k, images.siegemachine[i], true, function() {
+        siegeMachineButtons.push(new Button(x+5*k, y+5*k, 75*k, 75*k, images.siegemachine[i], true, function() {
             selectedSiegeMachine = i+1;
         }))
     }
@@ -255,15 +261,15 @@ function setup() {
             selectedSuperTroops = [];
         }
     }))
-    for (let i = 0; i < 14; i++) {
-        let x = 55*k + (100*k*parseInt(i/2));
+    for (let i = 0; i < 16; i++) {
+        let x = 25*k + (95*k*parseInt(i/2));
         let y;
         if (i % 2 == 0) {
             y = 160*k;
         } else {
             y = 260*k;
         }
-        superTroopButtons.push(new Button(x+5*k, y+5*k, 80*k, 80*k, images.supertroops[i], true, function() {
+        superTroopButtons.push(new Button(x+5*k, y+5*k, 75*k, 75*k, images.supertroops[i], true, function() {
             if (selectedSuperTroops.includes(i)) {
                 selectedSuperTroops.splice(selectedSuperTroops.indexOf(i), 1);
             }
