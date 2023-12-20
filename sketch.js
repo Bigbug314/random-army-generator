@@ -106,7 +106,8 @@ function preload() {
             loadImage("images/siegeMachines/StoneSlammer.webp"),
             loadImage("images/siegeMachines/SiegeBarracks.webp"),
             loadImage("images/siegeMachines/LogLauncher.webp"),
-            loadImage("images/siegeMachines/FlameFlinger.webp")
+            loadImage("images/siegeMachines/FlameFlinger.webp"),
+            loadImage("images/siegeMachines/BattleDrill.png")
         ],
         supertroops: [
             loadImage("images/superTroops/SuperBarbarian.webp"),
@@ -237,7 +238,7 @@ function setup() {
     }
 
     //Siege Machines
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < 7; i++) {
         let x = 25*k + (95*k*parseInt(i/2));
         let y;
         if (i % 2 == 0) {
