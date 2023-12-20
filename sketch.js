@@ -3,7 +3,7 @@ let freeze = false;
 let army;
 
 
-let menuIndex = 1;
+let menuIndex = 0;
 
 let k = 1.5;    //This is used to change the size of the canvas
 
@@ -157,11 +157,11 @@ function setup() {
     textFont(fonts.lemondays);
 
     //Gui stuff
-    nextButton = new Button(770*k, 390*k, 100*k, 36*k, images.next, true, toMenu2);
+    nextButton = new Button(770*k, 390*k, 100*k, 36*k, images.next, true, toMenu1);
     backButton = new Button(30*k, 390*k, 100*k, 36*k, images.back, true, null);
 
     
-    /*troopInput = createInput();
+    troopInput = createInput();
     troopInput.position(130*k, 90*k);
     troopInput.size(80*k);
     troopInput.style('font-size', 35*k+'px');
@@ -179,7 +179,7 @@ function setup() {
     ccSpellInput = createInput();
     ccSpellInput.position(570*k, 290*k);
     ccSpellInput.size(80*k);
-    ccSpellInput.style('font-size', 35*k+'px');*/
+    ccSpellInput.style('font-size', 35*k+'px');
 
     //Troops
     for (let i = 0; i < 17; i++) {
@@ -342,6 +342,7 @@ function draw() {
 
 //Events
 function mouseClicked() {
+    alert("you just clicked the mouse");
     let nextbackButtonClicked = false;
     if (menuIndex <= 6) {
         if (nextButton.update(createVector(mouseX,mouseY))) {
