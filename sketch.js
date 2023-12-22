@@ -432,32 +432,33 @@ function mouseClicked() {
 //Switch to next menu
 
 function toMenu1() {
-        menuIndex = 1;
-        troopCapacity = parseInt(troopInput.value());
-        spellCapacity = parseInt(spellInput.value());
-        ccTroopCapacity = parseInt(ccTroopInput.value());
-        ccSpellCapacity = parseInt(ccSpellInput.value());
+    alert("hi");
+    menuIndex = 1;
+    troopCapacity = parseInt(troopInput.value());
+    spellCapacity = parseInt(spellInput.value());
+    ccTroopCapacity = parseInt(ccTroopInput.value());
+    ccSpellCapacity = parseInt(ccSpellInput.value());
 
-        if (!troopCapacity) {
-            troopCapacity = 0;
-        }
-        if (!spellCapacity) {
-            spellCapacity = 0;
-        }
-        if (!ccTroopCapacity) {
-            ccTroopCapacity = 0;
-        }
-        if (!ccSpellCapacity) {
-            ccSpellCapacity = 0;
-        }
+    if (!troopCapacity) {
+        troopCapacity = 0;
+    }
+    if (!spellCapacity) {
+        spellCapacity = 0;
+    }
+    if (!ccTroopCapacity) {
+        ccTroopCapacity = 0;
+    }
+    if (!ccSpellCapacity) {
+        ccSpellCapacity = 0;
+    }
 
-        troopInput.remove();
-        spellInput.remove();
-        ccTroopInput.remove();
-        ccSpellInput.remove();
+    troopInput.remove();
+    spellInput.remove();
+    ccTroopInput.remove();
+    ccSpellInput.remove();
 
 
-        nextButton.action = toMenu2;
+    nextButton.action = toMenu2;
 }
 
 
