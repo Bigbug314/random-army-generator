@@ -341,13 +341,10 @@ function draw() {
 
 
 //Events
-function mouseClicked() {
-    alert("The mouse was clicked");
+function mouseReleased() {
     let nextbackButtonClicked = false;
     if (menuIndex <= 6) {
-        alert("Checking next and back buttons")
         if (nextButton.update(createVector(mouseX,mouseY))) {
-            alert("The button was successfully clicked")
             nextbackButtonClicked = true;
             return;
         }
@@ -437,14 +434,12 @@ function mouseClicked() {
 //Switch to next menu
 
 function toMenu1() {
-    alert("Going to menu 1");
     menuIndex = 1;
     troopCapacity = parseInt(troopInput.value());
     spellCapacity = parseInt(spellInput.value());
     ccTroopCapacity = parseInt(ccTroopInput.value());
     ccSpellCapacity = parseInt(ccSpellInput.value());
 
-    alert("Values extracted from inputs")
 
     if (!troopCapacity) {
         troopCapacity = 0;
@@ -464,12 +459,8 @@ function toMenu1() {
     ccTroopInput.remove();
     ccSpellInput.remove();
 
-    alert("Inputs removed")
-
 
     nextButton.action = toMenu2;
-
-    alert("Next button action changed")
 }
 
 
